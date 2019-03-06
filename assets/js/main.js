@@ -15,8 +15,15 @@ document.onkeyup = ({ keyCode, key }) => {
       document.querySelector(`.` + key).textContent = key
       console.log(event)
     } else {
-      setInterval(function () {
-        document.querySelector('#password').style.borderColor = 'red' }, 1)
+      flashRed()
+
+      function flashRed () {
+        var redBox = document.querySelector('#password')
+        redBox.style.borderColor = 'red'
+        setTimeout(function () {
+          redBox.style.borderColor = '#D1D4D8'
+        }, 1000)
+      }
     }
   }
 }
